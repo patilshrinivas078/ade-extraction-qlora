@@ -98,6 +98,7 @@ def main():
         max_length=model_cfg["max_length"],
         dataset_text_field="text",
         packing=False,
+        loss_type="nll",
     )
 
     trainer = SFTTrainer(
