@@ -82,7 +82,7 @@ def main():
         gradient_accumulation_steps=train_cfg["gradient_accumulation_steps"],
         learning_rate=train_cfg["learning_rate"],
         lr_scheduler_type=train_cfg["lr_scheduler_type"],
-        warmup_ratio=train_cfg["warmup_ratio"],
+        warmup_steps=train_cfg["warmup_ratio"],
         weight_decay=train_cfg["weight_decay"],
         optim=train_cfg["optim"],
         logging_steps=train_cfg["logging_steps"],
@@ -95,7 +95,7 @@ def main():
         gradient_checkpointing=train_cfg["gradient_checkpointing"],
         report_to=train_cfg["report_to"],
         seed=train_cfg["seed"],
-        max_seq_length=model_cfg["max_seq_length"],
+        max_length=model_cfg["max_length"],
         dataset_text_field="text",
         packing=False,
     )

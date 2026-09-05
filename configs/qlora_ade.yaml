@@ -5,7 +5,7 @@
 
 model:
   base_model_id: "Qwen/Qwen2.5-3B-Instruct"
-  max_seq_length: 512          # ADE sentences are short (case-report sentences), verified in prepare_dataset.py
+  max_length: 512          # ADE sentences are short (case-report sentences), verified in prepare_dataset.py
 
 quantization:
   load_in_4bit: true
@@ -57,6 +57,6 @@ data:
   negative_ratio: 0.35          # fraction of final dataset that should be "no ADE present" examples
                                   # (real-world extraction pipelines see far more negatives than positives —
                                   # training on positives only would teach the model to always find an ADE)
-  train_size: 12000
-  val_size: 1000
-  test_size: 1000
+  train_size: 5570
+  val_size: 500
+  test_size: 500
