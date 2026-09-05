@@ -47,7 +47,7 @@ training:
   save_total_limit: 3
   bf16: true
   gradient_checkpointing: true
-  report_to: "none"
+  report_to: "wandb"
   seed: 42
 
 data:
