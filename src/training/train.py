@@ -92,6 +92,7 @@ def main():
         save_steps=train_cfg["save_steps"],
         save_total_limit=train_cfg["save_total_limit"],
         bf16=train_cfg["bf16"],
+        fp16=train_cfg["fp16"],
         gradient_checkpointing=train_cfg["gradient_checkpointing"],
         report_to=train_cfg["report_to"],
         seed=train_cfg["seed"],
