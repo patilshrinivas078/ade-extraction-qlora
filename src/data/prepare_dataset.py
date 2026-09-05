@@ -164,9 +164,9 @@ def main():
     p50 = lengths[len(lengths) // 2]
     p99 = lengths[int(len(lengths) * 0.99)]
     print(f"Token length (sample of {len(lengths)}) -> median: {p50}, p99: {p99}")
-    if p99 > model_cfg["max_seq_length"]:
-        print(f"WARNING: p99 length {p99} exceeds configured max_seq_length "
-              f"{model_cfg['max_seq_length']} — consider raising it.")
+    if p99 > model_cfg["max_length"]:
+        print(f"WARNING: p99 length {p99} exceeds configured max_length "
+              f"{model_cfg['max_length']} — consider raising it.")
 
     # --- split ---
     scale = len(all_items) / configured_total if configured_total > 0 else 0
