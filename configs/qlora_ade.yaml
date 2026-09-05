@@ -1,0 +1,62 @@
+# ==============================================================================
+# Configuration for QLoRA fine-tuning of Qwen2.5-3B-Instruct on ADE Corpus V2
+# (drug / adverse-effect relation extraction into structured JSON).
+# ==============================================================================
+
+model:
+  base_model_id: "Qwen/Qwen2.5-3B-Instruct"
+  max_seq_length: 512          # ADE sentences are short (case-report sentences), verified in prepare_dataset.py
+
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_use_double_quant: true
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: "none"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  task_type: "CAUSAL_LM"
+
+training:
+  output_dir: "outputs/qwen25-3b-ade-lora"
+  num_train_epochs: 3
+  per_device_train_batch_size: 8      # short sequences -> can afford a bigger batch than the SQL project
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 2       # effective batch size = 16
+  learning_rate: 2.0e-4
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.03
+  weight_decay: 0.01
+  optim: "paged_adamw_8bit"
+  logging_steps: 10
+  eval_strategy: "steps"
+  eval_steps: 100
+  save_strategy: "steps"
+  save_steps: 100
+  save_total_limit: 3
+  bf16: true
+  gradient_checkpointing: true
+  report_to: "wandb"
+  seed: 42
+
+data:
+  dataset_id: "ade-benchmark-corpus/ade_corpus_v2"
+  relation_config: "Ade_corpus_v2_drug_ade_relation"
+  classification_config: "Ade_corpus_v2_classification"
+  negative_ratio: 0.35          # fraction of final dataset that should be "no ADE present" examples
+                                  # (real-world extraction pipelines see far more negatives than positives —
+                                  # training on positives only would teach the model to always find an ADE)
+  train_size: 12000
+  val_size: 1000
+  test_size: 1000

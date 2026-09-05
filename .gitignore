@@ -1,0 +1,25 @@
+# Data (regeneratable from prepare_dataset.py — don't commit)
+data/*.jsonl
+
+# Model weights, checkpoints, adapters
+outputs/
+*.safetensors
+*.bin
+checkpoint-*/
+
+results/*_predictions_raw.json
+
+# Secrets
+.env
+*.key
+wandb/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# OS
+.DS_Store
