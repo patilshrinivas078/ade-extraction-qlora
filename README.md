@@ -64,7 +64,7 @@ each answers a different question about where the model actually stands.
 |---|---|---|
 | **EXP-01: Strict** | Case-insensitive, whitespace-normalized exact matching on `(drug, effect)` pairs | Does the model recover the *exact* annotated relation? Captures both missed and unsupported relations via Precision/Recall/F1. |
 | **EXP-02: Relaxed** | Same predictions and test set, plus conservative whole-word containment matching (e.g. `"severe mucositis"` ↔ `"mucositis"`) with deterministic one-to-one matching | How much of the strict error rate is span-boundary/surface-form disagreement rather than genuine extraction failure? Gold annotations are never modified. |
-| **EXP-03: LLM-as-a-Judge** | DeepEval G-Eval, judge model `gpt-4o-mini` | A broader clinical-alignment signal beyond deterministic string matching. The G-Eval correctness score is a semantic evaluation score, not Precision/Recall/F1 — treated as complementary evidence, not a replacement for the deterministic metrics. |
+| **EXP-03: LLM-as-a-Judge** | DeepEval G-Eval, judge model `gpt-4o-mini` | A broader clinical-alignment signal beyond deterministic string matching. The G-Eval correctness score is a semantic evaluation score, not Precision/Recall/F1. Thus, treated as complementary evidence, not a replacement for the deterministic metrics. |
 
 Drug-level and effect-level metrics are also reported independently from the
 full pair, since "found the right drug" and "found the right effect" are
@@ -106,7 +106,7 @@ into one pair-level number would hide that distinction.
 
 - **Schema reliability.** JSON validity rose from 92.0% to 99.0%, and Exact
   Match from 51.2% to 76.2%. An extraction component needs machine-readable
-  output consistently, not just occasionally — this shows fine-tuning taught
+  output consistently, not just occasionally. This shows fine-tuning taught
   both the extraction behavior and the expected response format.
 
 - **Extraction recall, not just verbosity.** Strict pair Recall rose from
