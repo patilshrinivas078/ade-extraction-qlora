@@ -1,0 +1,16 @@
+{
+  "experiment": "EXP-03",
+  "judge": "DeepEval GEval",
+  "judge_model": "gpt-4o-mini",
+  "threshold": 0.7,
+  "base_model": {
+    "n_examples": 500,
+    "average_score": 0.5961,
+    "pass_rate_pct": 54.4
+  },
+  "fine_tuned_model": {
+    "n_examples": 500,
+    "average_score": 0.8749,
+    "pass_rate_pct": 82.0
+  }
+}
