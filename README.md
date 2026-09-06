@@ -186,14 +186,14 @@ python src/evaluation/evaluate.py \
     --test_file data/test.jsonl
 
 # 4. EXP-02: relaxed (span-tolerant) evaluation, same predictions and test set
-python src/evaluation/evaluate_exp02.py \
+python src/evaluation/relaxed_evaluate.py \
     --base_model_id Qwen/Qwen2.5-3B-Instruct \
     --adapter_dir outputs/qwen25-3b-ade-lora \
     --test_file data/test.jsonl
 
 # 5. EXP-03: LLM semantic evaluation (DeepEval G-Eval, gpt-4o-mini)
 # adjust the script path below to match your actual EXP-03 filename
-python src/evaluation/evaluate_exp03.py \
+python src/evaluation/llm_evaluate.py \
     --base_model_id Qwen/Qwen2.5-3B-Instruct \
     --adapter_dir outputs/qwen25-3b-ade-lora \
     --test_file data/test.jsonl
