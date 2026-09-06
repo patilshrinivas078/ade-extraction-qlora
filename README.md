@@ -64,7 +64,7 @@ each answers a different question about where the model actually stands.
 |---|---|---|
 | **EXP-01: Strict** | Case-insensitive, whitespace-normalized exact matching on `(drug, effect)` pairs | Does the model recover the *exact* annotated relation? Captures both missed and unsupported relations via Precision/Recall/F1. |
 | **EXP-02: Relaxed** | Same predictions and test set, plus conservative whole-word containment matching (e.g. `"severe mucositis"` ↔ `"mucositis"`) with deterministic one-to-one matching | How much of the strict error rate is span-boundary/surface-form disagreement rather than genuine extraction failure? Gold annotations are never modified. |
-| **EXP-03: LLM-as-a-judge** | DeepEval G-Eval, judge model `gpt-4o-mini` | A broader clinical-alignment signal beyond deterministic string matching. The G-Eval correctness score is a semantic evaluation score, not Precision/Recall/F1 — treated as complementary evidence, not a replacement for the deterministic metrics. |
+| **EXP-03: LLM-as-a-Judge** | DeepEval G-Eval, judge model `gpt-4o-mini` | A broader clinical-alignment signal beyond deterministic string matching. The G-Eval correctness score is a semantic evaluation score, not Precision/Recall/F1 — treated as complementary evidence, not a replacement for the deterministic metrics. |
 
 Drug-level and effect-level metrics are also reported independently from the
 full pair, since "found the right drug" and "found the right effect" are
@@ -94,7 +94,7 @@ into one pair-level number would hide that distinction.
 | Effect-level F1 | 51.52% | **86.86%** |
 | Relaxed Exact Match | 53.80% | **82.40%** |
 
-### EXP-03: LLM Semantic Evaluation
+### EXP-03: LLM-as-a-Judge
 
 | Metric | Base Model | Fine-tuned Model |
 |---|---:|---:|
