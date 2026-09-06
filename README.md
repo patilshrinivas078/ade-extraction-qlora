@@ -158,8 +158,7 @@ of LLM-based evaluation.
 
 ## Setup
 
-Trained on a single **NVIDIA L4** GPU. Any single-GPU environment with
-sufficient VRAM and CUDA support should work.
+Training was performed on a single NVIDIA L4 GPU.
 
 ```bash
 uv sync
