@@ -1,4 +1,4 @@
-# Clinical Adverse-Drug-Event (ADE) Extraction — QLoRA Fine-Tuning
+# QLoRA Fine-Tuning for Clinical Adverse Drug Event (ADE) Extraction
 
 Fine-tunes `Qwen/Qwen2.5-3B-Instruct` with QLoRA on **ADE Corpus V2** to extract
 drug / adverse-effect relations from clinical case-report sentences into a
