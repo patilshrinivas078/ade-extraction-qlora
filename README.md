@@ -24,8 +24,7 @@ documents or passages; ADE extraction requires the model to interpret a
 sentence, identify entities, and determine which drug–effect relationship is
 actually expressed. The project evaluates whether a compact
 instruction-tuned LLM can be adapted to a narrowly defined clinical
-extraction task through QLoRA fine-tuning, and evaluated with the same rigor
-a production extraction pipeline would demand.
+extraction task through QLoRA fine-tuning.
 
 Negative examples (sentences with no adverse event) are deliberately
 included in training so the model learns to *not* hallucinate an ADE where
