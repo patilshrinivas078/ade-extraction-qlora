@@ -23,3 +23,12 @@ venv/
 
 # OS
 .DS_Store
+.venv/
+.deepeval/
+wandb/
+.env
+outputs/
+results/test_run_*.json
+results/*.lock
+__pycache__/
+*.pyc
