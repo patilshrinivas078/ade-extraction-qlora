@@ -55,8 +55,7 @@ data:
   relation_config: "Ade_corpus_v2_drug_ade_relation"
   classification_config: "Ade_corpus_v2_classification"
   negative_ratio: 0.35          # fraction of final dataset that should be "no ADE present" examples
-                                  # (real-world extraction pipelines see far more negatives than positives —
-                                  # training on positives only would teach the model to always find an ADE)
+                                  
   train_size: 5570
   val_size: 500
   test_size: 500
